@@ -66,11 +66,14 @@ h1{font-size:clamp(34px,5vw,50px);line-height:1.2;margin-top:10px;letter-spacing
 .legend i{display:inline-block;width:22px;height:14px;border-radius:6px}
 
 /* toolbar */
-.bar{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;justify-content:space-between;margin:18px 0 12px}
+.bar{position:sticky;top:0;z-index:10;display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;justify-content:space-between;margin:18px -8px 12px;padding:8px;background:var(--bg);border-radius:0 0 18px 18px}
+.bar.stuck{box-shadow:0 4px 0 var(--shadow)}
 .stages{display:flex;flex-wrap:wrap;gap:6px}
 .stages button{border:0;background:var(--surface);border-radius:999px;padding:3px 12px 3px 4px;font-size:13px;display:inline-flex;align-items:center;gap:6px;box-shadow:0 3px 0 var(--shadow)}
 .stages button i{font-style:normal;width:22px;height:22px;border-radius:50%;background:var(--velvet-strong);color:var(--velvet-ink);display:grid;place-items:center;font-family:var(--f-num);font-weight:800;font-size:12px}
 .stages button:hover{color:var(--velvet-deep)}
+.stages button[aria-current="true"]{background:var(--velvet-strong);color:var(--velvet-ink);box-shadow:0 3px 0 var(--velvet-shadow)}
+.stages button[aria-current="true"] i{background:var(--velvet-ink);color:var(--velvet-strong)}
 .tools{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
 .tbtn{border:2px solid var(--line);background:var(--surface);border-radius:999px;padding:3px 14px;font-size:13px}
 .tbtn:hover{border-color:var(--velvet)}
@@ -88,7 +91,7 @@ h1{font-size:clamp(34px,5vw,50px);line-height:1.2;margin-top:10px;letter-spacing
 .edges .ah-hi{fill:var(--edge-hi)}
 
 /* stage bands */
-.band{position:relative;border-radius:24px;background:var(--band);border:2.5px solid var(--line);padding:96px 20px 30px;margin-top:84px;scroll-margin-top:16px;box-shadow:0 5px 0 var(--line)}
+.band{position:relative;border-radius:24px;background:var(--band);border:2.5px solid var(--line);padding:96px 20px 30px;margin-top:84px;scroll-margin-top:80px;box-shadow:0 5px 0 var(--line)}
 .band:first-of-type{margin-top:0}
 .band-h{position:absolute;left:0;right:0;top:0;display:flex;align-items:center;gap:12px;font-size:22px;letter-spacing:.08em;color:var(--velvet-deep);background:var(--velvet-soft);border-radius:21px 21px 0 0;border-bottom:2.5px dashed var(--velvet);padding:14px 22px}
 .band-h i{font-style:normal;width:28px;height:28px;border-radius:50%;background:var(--velvet-strong);color:var(--velvet-ink);display:grid;place-items:center;font-family:var(--f-num);font-weight:800;font-size:14px}
@@ -233,7 +236,7 @@ body:not(.detail) .more{display:none}
   .canvas{position:static;width:auto;max-width:760px;margin:0 auto;padding:0;transform:none!important}
   .canvas svg.edges{display:none}
   .band::before,.band::after{display:none}
-  .band{padding:80px 12px 18px;margin-top:56px;scroll-margin-top:12px}
+  .band{padding:80px 12px 18px;margin-top:56px;scroll-margin-top:68px}
   .band-h{font-size:18px;gap:10px;padding:12px 14px}
   .reel{width:30px;height:30px}
   .band .flow{align-items:stretch;gap:24px;background:linear-gradient(var(--edge),var(--edge)) 50% 0/2.5px 100% no-repeat}
@@ -250,16 +253,18 @@ body:not(.detail) .more{display:none}
   .cases{grid-template-columns:1fr 1fr;gap:10px}
   #n-start{align-self:center}
   .hint .wide-only{display:none}
+  .bar{flex-wrap:nowrap;gap:10px}
+  .stages{flex:1;min-width:0;flex-wrap:nowrap;overflow-x:auto;padding:2px 2px 6px;scrollbar-width:none;-webkit-mask:linear-gradient(90deg,#000 calc(100% - 24px),transparent)}
+  .stages::-webkit-scrollbar{display:none}
+  .stages button{flex:none}
+  .tools{flex:none}
 }
 @media (max-width:760px){
   .wrap{padding-inline:16px;padding-block:14px 48px}
   h1{font-size:32px}
   .hero-art{width:220px}
   .legend{max-width:none;padding:10px 12px;gap:6px 12px}
-  .bar{margin:14px 0 10px}
-  .stages{flex-wrap:nowrap;overflow-x:auto;margin-inline:-16px;padding:2px 16px 8px;scrollbar-width:none;width:calc(100% + 32px)}
-  .stages::-webkit-scrollbar{display:none}
-  .stages button{flex:none}
+  .bar{margin:14px -16px 10px;padding:8px 16px;border-radius:0}
   #n-end{padding:24px 56px;font-size:17px}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
@@ -316,7 +321,7 @@ body:not(.detail) .more{display:none}
   <div class="bar">
     <nav class="stages" id="stages" aria-label="跳到階段"></nav>
     <div class="tools">
-      <button class="tbtn" id="detailBtn" aria-pressed="false">顯示補充說明</button>
+      <button class="tbtn" id="detailBtn" aria-pressed="false" title="顯示或隱藏每個選項底下的補充說明">補充說明</button>
       <button class="tbtn" id="zoomOut" aria-label="縮小">－</button>
       <span class="zoomv" id="zoomV">100%</span>
       <button class="tbtn" id="zoomIn" aria-label="放大">＋</button>
@@ -554,7 +559,7 @@ document.addEventListener('click',e=>{
     case 'zoomIn':setScale(scale+.1);break;
     case 'zoomOut':setScale(scale-.1);break;
     case 'zoomFit':setScale(fitScale());break;
-    case 'detailBtn':{const on=!document.body.classList.contains('detail');document.body.classList.toggle('detail',on);t.setAttribute('aria-pressed',on);t.textContent=on?'隱藏補充說明':'顯示補充說明';draw();break;}
+    case 'detailBtn':{const on=!document.body.classList.contains('detail');setDetail(on);try{localStorage.setItem('mp-detail',on?'1':'0')}catch(_){}draw();break;}
   }
 });
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeD();});
@@ -563,6 +568,28 @@ document.addEventListener('pointerout',e=>{const n=e.target.closest('.node');if(
 let rz;window.addEventListener('resize',()=>{clearTimeout(rz);rz=setTimeout(()=>{if(!mq.matches)draw();},150);});
 
 render();
+function setDetail(on){document.body.classList.toggle('detail',on);document.getElementById('detailBtn').setAttribute('aria-pressed',on);}
+try{if(localStorage.getItem('mp-detail')==='1')setDetail(true)}catch(_){}
+
+/* sticky bar: highlight the scene currently on screen */
+const bar=document.querySelector('.bar'), stagesEl=document.getElementById('stages');
+function markStage(k){
+  stagesEl.querySelectorAll('button').forEach(b=>{
+    const on=b.dataset.band===k;
+    if(on)b.setAttribute('aria-current','true');else b.removeAttribute('aria-current');
+    if(on&&stagesEl.scrollWidth>stagesEl.clientWidth)stagesEl.scrollTo({left:b.offsetLeft-stagesEl.offsetLeft-(stagesEl.clientWidth-b.offsetWidth)/2,behavior:'smooth'});
+  });
+}
+function onScroll(){
+  bar.classList.toggle('stuck',bar.getBoundingClientRect().top<=0&&scrollY>0);
+  const line=bar.getBoundingClientRect().bottom+innerHeight*.25;let cur=null;
+  document.querySelectorAll('.band').forEach(b=>{if(b.getBoundingClientRect().top<=line)cur=b.id.slice(5);});
+  const endEl=document.getElementById('n-end');
+  if(cur!=='extra'&&endEl.getBoundingClientRect().bottom<line&&document.getElementById('band-extra').getBoundingClientRect().top>line)cur=null;
+  if(cur!==markStage.last){markStage.last=cur;markStage(cur);}
+}
+let st;addEventListener('scroll',()=>{if(!st)st=requestAnimationFrame(()=>{st=0;onScroll();});},{passive:true});
+onScroll();
 function boot(){scale=1;draw();if(mq.matches)return;const f=fitScale();setScale(f<.62?.62:f);}
 boot();
 if(document.fonts&&document.fonts.ready)document.fonts.ready.then(boot);
