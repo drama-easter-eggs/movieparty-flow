@@ -1,0 +1,529 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="一張圖看完辦電影包場的通用流程：從起心動念、聯絡影城、算票價、收款宣傳，到活動當天。整理自影視雷達包場 SOP 指南。">
+<meta property="og:title" content="包場流程總覽（通用版）｜影視雷達">
+<meta property="og:description" content="一張圖看完辦電影包場的完整流程與每個岔路的選擇。">
+<title>包場流程總覽（通用版）｜影視雷達</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Huninn&family=M+PLUS+Rounded+1c:wght@500;800&display=swap">
+<style>
+:root{
+  --bg:#EEF4F6; --surface:#FFFFFF; --surface-2:#F5F8FA; --ink:#3B3F52; --muted:#7D8397; --line:#DCE4EA;
+  --velvet:#E8708F; --velvet-ink:#FFFFFF; --velvet-soft:#FDE8EE; --velvet-deep:#C9557A;
+  --sky:#8CC4DC; --sky-soft:#E4F2F8; --sky-deep:#3F86A6;
+  --warn:#D4692F; --warn-soft:#FFEADF; --ok:#4E9A62; --ok-soft:#E3F3E4;
+  --band:#F8FAFBcc; --band-solid:#F9FBFC; --edge:#9AA6B6; --edge-hi:#E8708F; --shadow:#D5DFE6;
+  --butter:#FFEDB5; --gold:#F2B84B; --screen:#2E3347; --screen-glow:#FFF4D6;
+  --dotbg:radial-gradient(circle,#DDE8EE 1.4px,transparent 1.6px);
+  --f-body:"Huninn","M PLUS Rounded 1c","Hiragino Maru Gothic ProN","Yuanti TC","PingFang TC","Microsoft JhengHei",sans-serif;
+  --f-num:"M PLUS Rounded 1c","Hiragino Maru Gothic ProN",ui-rounded,system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#1B2130; --surface:#252D3F; --surface-2:#2C3549; --ink:#EDEFF6; --muted:#A3AABD; --line:#3A4459;
+    --velvet:#F48CA8; --velvet-ink:#2A1520; --velvet-soft:#43293A; --velvet-deep:#F9B3C6;
+    --sky:#6FA9C2; --sky-soft:#22384A; --sky-deep:#9AD0E8;
+    --warn:#F5A677; --warn-soft:#442C22; --ok:#86CE96; --ok-soft:#24392C;
+    --band:#212839cc; --band-solid:#232B3D; --edge:#66728A; --edge-hi:#F48CA8; --shadow:#131825;
+    --butter:#F5DFA0; --gold:#F2C766; --screen:#10141F; --screen-glow:#3A3524;
+    --dotbg:radial-gradient(circle,#26304A 1.4px,transparent 1.6px);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#1B2130; --surface:#252D3F; --surface-2:#2C3549; --ink:#EDEFF6; --muted:#A3AABD; --line:#3A4459;
+  --velvet:#F48CA8; --velvet-ink:#2A1520; --velvet-soft:#43293A; --velvet-deep:#F9B3C6;
+  --sky:#6FA9C2; --sky-soft:#22384A; --sky-deep:#9AD0E8;
+  --warn:#F5A677; --warn-soft:#442C22; --ok:#86CE96; --ok-soft:#24392C;
+  --band:#212839cc; --band-solid:#232B3D; --edge:#66728A; --edge-hi:#F48CA8; --shadow:#131825;
+    --butter:#F5DFA0; --gold:#F2C766; --screen:#10141F; --screen-glow:#3A3524;
+  --dotbg:radial-gradient(circle,#26304A 1.4px,transparent 1.6px);
+}
+*{box-sizing:border-box}
+html{color-scheme:light;-webkit-text-size-adjust:100%}
+@media (prefers-color-scheme: dark){html:not([data-theme="light"]){color-scheme:dark}}
+body{margin:0;background:var(--bg);background-image:var(--dotbg);background-size:22px 22px;color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.7;letter-spacing:.02em}
+[hidden]{display:none!important}
+h1,h2,h3{margin:0;font-weight:400;text-wrap:balance}
+b,strong{font-weight:400;color:var(--velvet-deep)}
+button{font:inherit;color:inherit;cursor:pointer;letter-spacing:inherit}
+button:focus-visible{outline:3px solid var(--sky);outline-offset:3px}
+.wrap{max-width:1240px;margin:0 auto;padding-inline:20px;padding-block:22px 60px}
+
+/* header */
+.masthead{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px 28px;align-items:end;margin-bottom:18px}
+@media (max-width:760px){.masthead{grid-template-columns:1fr}}
+.eyebrow{display:inline-block;font-size:12.5px;letter-spacing:.12em;color:var(--velvet-ink);background:var(--velvet);padding:2px 14px;border-radius:999px}
+h1{font-size:clamp(34px,5vw,50px);line-height:1.2;margin-top:10px;letter-spacing:.06em}
+.lede{color:var(--muted);max-width:38em;margin:6px 0 0}
+.legend{display:flex;flex-wrap:wrap;gap:8px 14px;font-size:13px;color:var(--muted);background:var(--surface);border-radius:20px;padding:12px 16px;box-shadow:0 4px 0 var(--shadow);max-width:480px;justify-content:center}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend i{display:inline-block;width:22px;height:14px;border-radius:6px}
+
+/* toolbar */
+.bar{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;justify-content:space-between;margin:18px 0 12px}
+.stages{display:flex;flex-wrap:wrap;gap:6px}
+.stages button{border:0;background:var(--surface);border-radius:999px;padding:3px 12px 3px 4px;font-size:13px;display:inline-flex;align-items:center;gap:6px;box-shadow:0 3px 0 var(--shadow)}
+.stages button i{font-style:normal;width:22px;height:22px;border-radius:50%;background:var(--velvet);color:var(--velvet-ink);display:grid;place-items:center;font-family:var(--f-num);font-weight:800;font-size:12px}
+.stages button:hover{color:var(--velvet-deep)}
+.tools{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.tbtn{border:2px solid var(--line);background:var(--surface);border-radius:999px;padding:3px 14px;font-size:13px}
+.tbtn:hover{border-color:var(--velvet)}
+.tbtn[aria-pressed="true"]{background:var(--velvet);border-color:var(--velvet);color:var(--velvet-ink)}
+.zoomv{font-family:var(--f-num);font-size:12.5px;color:var(--muted);min-width:44px;text-align:center}
+
+/* diagram viewport */
+.viewport{background:var(--surface);border-radius:28px;box-shadow:0 6px 0 var(--shadow);overflow:auto;padding:0;position:relative;-webkit-overflow-scrolling:touch}
+.sizer{position:relative;margin:0 auto}
+.canvas{position:absolute;left:0;top:0;width:1120px;padding:28px 28px 36px;transform-origin:0 0}
+.canvas svg.edges{position:absolute;left:0;top:0;pointer-events:none;z-index:1;overflow:visible}
+.edges path{fill:none;stroke:var(--edge);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;transition:stroke .15s}
+.edges path.hi{stroke:var(--edge-hi);stroke-width:3.5}
+.edges .ah{fill:var(--edge)}
+.edges .ah-hi{fill:var(--edge-hi)}
+
+/* stage bands */
+.band{position:relative;border-radius:24px;background:var(--band);border:2px dashed var(--line);padding:46px 20px 26px;margin-top:40px}
+.band:first-of-type{margin-top:0}
+.band-h{position:absolute;left:18px;top:12px;display:flex;align-items:center;gap:8px;font-size:15px;color:var(--velvet-deep)}
+.band-h i{font-style:normal;width:28px;height:28px;border-radius:50%;background:var(--velvet);color:var(--velvet-ink);display:grid;place-items:center;font-family:var(--f-num);font-weight:800;font-size:14px}
+.flow{display:flex;flex-direction:column;align-items:center;gap:52px}
+
+/* nodes */
+.node{position:relative;z-index:2;border:0;text-align:center;text-wrap:balance;border-radius:18px;padding:10px 16px;line-height:1.5;transition:transform .15s,box-shadow .15s}
+.node:hover{transform:translateY(-2px)}
+.node.sel{box-shadow:0 0 0 4px var(--sky)!important}
+.n-cap{background:var(--ink);color:var(--bg);border-radius:999px;padding:10px 28px;font-size:17px;box-shadow:0 4px 0 var(--shadow)}
+.n-q{background:var(--velvet);color:var(--velvet-ink);font-size:16.5px;min-width:220px;max-width:320px;padding:12px 22px;box-shadow:0 4px 0 var(--velvet-deep)}
+.n-q.sub{font-size:15px;min-width:180px;padding:10px 16px}
+.n-leaf{background:var(--surface);border:2.5px solid var(--line);width:196px;font-size:14.5px;box-shadow:0 4px 0 var(--line)}
+.n-leaf.warn{border-color:var(--warn);background:var(--warn-soft);box-shadow:0 4px 0 var(--warn-soft)}
+.n-leaf:hover{border-color:var(--velvet)}
+.n-step{background:var(--sky-soft);border:2.5px solid var(--sky);max-width:520px;padding:12px 18px;box-shadow:0 4px 0 var(--sky)}
+.n-step .st{display:block;font-size:16px;color:var(--sky-deep)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:6px}
+.chips span{font-size:12.5px;background:var(--surface);border-radius:999px;padding:1px 10px;color:var(--ink)}
+.more{display:block;font-size:12.5px;color:var(--muted);margin-top:2px}
+body:not(.detail) .more{display:none}
+.n-leaf.warn .more{color:var(--warn)}
+
+.blk{display:flex;flex-direction:column;align-items:center}
+.brs{display:flex;justify-content:center;gap:18px;margin-top:40px;align-items:flex-start}
+.br{display:flex;flex-direction:column;align-items:center;gap:12px}
+.lab{position:relative;z-index:3;font-size:13px;background:var(--surface);color:var(--velvet-deep);border:2px solid var(--velvet-soft);border-radius:999px;padding:0 12px;white-space:nowrap}
+.br .blk .brs{margin-top:34px;gap:12px}
+.br .blk .n-leaf{width:170px}
+.qnote{margin-top:14px;font-size:12.5px;color:var(--muted);background:var(--surface-2);border-radius:14px;padding:6px 14px;max-width:560px;text-align:center;position:relative;z-index:2}
+.qnote::before{content:"補充";display:inline-block;background:var(--sky);color:#fff;font-size:11px;padding:0 8px;border-radius:999px;margin-right:6px;vertical-align:1px}
+.wchip{display:block;margin-top:6px;font-size:12px;background:var(--surface);color:var(--warn);border-radius:999px;padding:0 10px}
+
+.cases{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.cases .n-leaf{width:auto}
+
+/* detail drawer */
+.drawer{position:fixed;z-index:20;right:16px;top:calc(env(safe-area-inset-top,0px) + 16px);bottom:calc(env(safe-area-inset-bottom,0px) + 16px);width:min(380px,calc(100vw - 32px));background:var(--surface);border-radius:24px;box-shadow:0 8px 0 var(--shadow),0 20px 50px #0002;padding:22px 22px 20px;overflow:auto;transform:translateX(calc(100% + 32px));transition:transform .35s cubic-bezier(.22,1,.36,1)}
+.drawer.open{transform:none}
+@media (max-width:640px){
+  .drawer{left:12px;right:12px;width:auto;top:auto;max-height:70vh;bottom:calc(env(safe-area-inset-bottom,0px) + 12px);transform:translateY(calc(100% + 24px))}
+}
+.drawer .x{position:absolute;z-index:3;right:14px;top:14px;border:0;width:34px;height:34px;border-radius:50%;background:var(--surface-2);font-size:18px;line-height:1}
+.drawer .x:hover{background:var(--velvet-soft)}
+.dpill{display:inline-flex;gap:6px;align-items:center;font-size:12.5px;color:var(--velvet-deep);background:var(--velvet-soft);padding:2px 12px 2px 4px;border-radius:999px}
+.dpill i{font-style:normal;width:22px;height:22px;border-radius:50%;background:var(--velvet);color:var(--velvet-ink);display:grid;place-items:center;font-family:var(--f-num);font-weight:800;font-size:12px}
+.drawer h2{font-size:22px;line-height:1.45;margin:10px 40px 10px 0}
+.drawer .kind{font-size:12px;color:var(--muted)}
+.drawer p{margin:0 0 10px}
+.drawer ul{margin:0 0 12px;padding-left:1.2em}
+.drawer li{margin:3px 0}
+.drawer .dopt{background:var(--surface-2);border-radius:16px;padding:10px 14px;margin-bottom:8px}
+.drawer .dopt b{display:block}
+.drawer .dopt span{font-size:13.5px;color:var(--muted)}
+.drawer table{width:100%;border-collapse:collapse;font-size:13px}
+.drawer td{padding:6px 4px;border-bottom:1px dashed var(--line);vertical-align:top}
+.drawer td:first-child{white-space:nowrap;padding-right:10px}
+.drawer .todo{background:var(--ok-soft);border-radius:16px;padding:10px 14px}
+.drawer .todo h3{font-size:13px;color:var(--ok);margin-bottom:2px}
+.hint{font-size:13px;color:var(--muted);margin-top:10px;text-align:center}
+.src{margin-top:34px;font-size:12.5px;color:var(--muted);border-top:2px dashed var(--line);padding-top:16px}
+
+/* ---------- cinema touches ---------- */
+/* curtain valance across the top */
+.valance{height:34px;background:
+  radial-gradient(circle at 50% 0,var(--velvet) 17px,transparent 18px) 0 0/44px 34px repeat-x,
+  linear-gradient(var(--velvet),var(--velvet)) 0 0/100% 10px no-repeat;position:relative}
+.valance::after{content:"";position:absolute;left:0;right:0;top:4px;height:3px;background:repeating-linear-gradient(90deg,var(--gold) 0 6px,transparent 6px 14px);opacity:.8;border-radius:2px}
+.hero-art{width:min(300px,100%);height:auto;display:block;margin:0 auto 10px}
+.hero-art .ink{stroke:var(--ink);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.side{display:flex;flex-direction:column;align-items:center}
+.eyebrow::before{content:"";display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--velvet-ink);margin-right:6px;vertical-align:0;box-shadow:inset 0 0 0 3px var(--velvet)}
+
+/* film reel badge */
+.reel{display:inline-block;flex:none;width:30px;height:30px;border-radius:50%;background:
+  radial-gradient(circle at 50% 50%,var(--band-solid) 2.6px,transparent 3px),
+  radial-gradient(circle at 50% 23%,var(--band-solid) 3.4px,transparent 3.8px),
+  radial-gradient(circle at 76% 42%,var(--band-solid) 3.4px,transparent 3.8px),
+  radial-gradient(circle at 66% 73%,var(--band-solid) 3.4px,transparent 3.8px),
+  radial-gradient(circle at 34% 73%,var(--band-solid) 3.4px,transparent 3.8px),
+  radial-gradient(circle at 24% 42%,var(--band-solid) 3.4px,transparent 3.8px),var(--velvet);
+  box-shadow:0 3px 0 var(--velvet-deep)}
+.scene{font-family:var(--f-num);font-weight:800;font-size:11px;letter-spacing:.14em;color:var(--velvet);background:var(--velvet-soft);border-radius:999px;padding:1px 9px}
+
+/* sprocket holes on each band edge */
+.band::before,.band::after{content:"";position:absolute;top:56px;bottom:22px;width:10px;
+  background:radial-gradient(closest-side,var(--line) 88%,transparent) 0 0/10px 22px repeat-y;opacity:.9}
+.band::before{left:10px}.band::after{right:10px}
+@media (max-width:640px){.band::before,.band::after{display:none}}
+
+/* start = admission ticket */
+#n-start{background:var(--velvet);color:var(--velvet-ink);border-radius:16px;padding:12px 38px 12px 54px;font-size:18px;box-shadow:0 4px 0 var(--velvet-deep);overflow:visible}
+#n-start::before,#n-start::after{content:"";position:absolute;top:50%;width:20px;height:20px;border-radius:50%;background:var(--surface);transform:translateY(-50%)}
+#n-start::before{left:-10px}#n-start::after{right:-10px}
+#n-start .stub{position:absolute;left:12px;top:8px;bottom:8px;width:26px;border-right:2.5px dashed #ffffff99;display:grid;place-items:center;font-family:var(--f-num);font-weight:800;font-size:9px;letter-spacing:.1em;writing-mode:vertical-rl;opacity:.9}
+
+/* end = the big screen */
+.screen-wrap{display:flex;flex-direction:column;align-items:center;gap:10px}
+#n-end{background:radial-gradient(ellipse at 50% 40%,var(--screen-glow),transparent 70%),var(--screen);color:#FFF7E0;border-radius:22px;padding:30px 70px;font-size:19px;min-width:420px;box-shadow:0 5px 0 var(--shadow),0 0 0 6px var(--ink);overflow:hidden}
+#n-end::before,#n-end::after{content:"";position:absolute;top:0;bottom:0;width:48px;background:
+  repeating-linear-gradient(90deg,#ffffff22 0 4px,transparent 4px 12px),var(--velvet);}
+#n-end::before{left:0;border-radius:0 0 40px 0}
+#n-end::after{right:0;border-radius:0 0 0 40px}
+#n-end .lamp{display:block;font-size:12px;letter-spacing:.2em;opacity:.75;margin-bottom:2px}
+.seats{width:min(480px,100%);height:26px;background:radial-gradient(circle at 50% 100%,var(--velvet-soft) 11px,transparent 12px) 0 0/30px 26px repeat-x;position:relative}
+.seats::after{content:"";position:absolute;left:15px;right:15px;top:10px;height:26px;background:radial-gradient(circle at 50% 100%,var(--line) 11px,transparent 12px) 0 0/30px 26px repeat-x}
+
+/* must-do step = ticket with side notches */
+.n-step::before,.n-step::after{content:"";position:absolute;top:50%;width:18px;height:18px;border-radius:50%;background:var(--band-solid);border:2.5px solid var(--sky);transform:translateY(-50%)}
+.n-step::before{left:-11px;clip-path:inset(0 0 0 50%)}
+.n-step::after{right:-11px;clip-path:inset(0 50% 0 0)}
+.n-step .st::before{content:"";display:inline-block;width:14px;height:10px;border-radius:3px;margin-right:6px;vertical-align:0;background:
+  radial-gradient(circle at 0 50%,var(--sky-soft) 3px,transparent 3.5px),radial-gradient(circle at 100% 50%,var(--sky-soft) 3px,transparent 3.5px),var(--sky-deep)}
+
+/* decision = clapper-top stripe */
+.n-q::before{content:"";position:absolute;left:14px;right:14px;top:-7px;height:7px;border-radius:6px 6px 0 0;background:repeating-linear-gradient(-55deg,var(--ink) 0 7px,var(--surface) 7px 14px);opacity:.9}
+.n-q.sub::before{left:18px;right:18px}
+
+/* NG takes */
+.ng{display:inline-block;font-family:var(--f-num);font-weight:800;font-size:10.5px;letter-spacing:.08em;background:var(--ink);color:var(--bg);border-radius:6px;padding:0 6px;margin-right:6px;vertical-align:1px}
+.clap{display:inline-block;width:26px;height:22px;flex:none}
+
+/* drawer as a ticket */
+.drawer .dhead{margin:-22px -22px 14px;padding:20px 22px 16px;background:var(--velvet-soft);border-radius:24px 24px 0 0;position:relative;border-bottom:2.5px dashed var(--velvet)}
+.drawer .dhead::before,.drawer .dhead::after{content:"";position:absolute;bottom:-11px;width:20px;height:20px;border-radius:50%;background:var(--bg)}
+.drawer .dhead::before{left:-10px}.drawer .dhead::after{right:-10px}
+.drawer .dhead h2{margin-bottom:2px}
+
+/* end credits */
+.credits{margin-top:40px;text-align:center;color:var(--muted);font-size:13px;display:grid;gap:4px;justify-items:center}
+.credits .ct{font-family:var(--f-num);font-weight:800;letter-spacing:.3em;font-size:12px;color:var(--velvet);margin-bottom:6px}
+.credits dl{display:grid;grid-template-columns:auto auto;gap:4px 16px;margin:0;text-align:left}
+.credits dt{text-align:right;color:var(--muted)}
+.credits dd{margin:0;color:var(--ink);max-width:30em}
+.credits .fin{margin-top:14px;font-family:var(--f-num);font-weight:800;letter-spacing:.4em;color:var(--ink)}
+@media (max-width:640px){#n-end{min-width:0;padding:26px 58px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="valance" aria-hidden="true"></div>
+<div class="wrap">
+  <header class="masthead">
+    <div>
+      <div class="eyebrow">影視雷達 · 民間包場 SOP · 通用版</div>
+      <h1>包場流程總覽</h1>
+      <p class="lede">從「好想包場」到燈光暗下，一張圖看完所有步驟和岔路。點任何一格，看每一步的做法與注意事項。</p>
+    </div>
+    <div class="side">
+      <svg class="hero-art" viewBox="0 0 300 160" role="img" aria-label="爆米花、場記板與電影票">
+        <g class="ink">
+          <path d="M150 22l3 7 7 3-7 3-3 7-3-7-7-3 7-3z" fill="var(--gold)" stroke="none"/>
+          <path d="M270 30l2.4 5.6 5.6 2.4-5.6 2.4-2.4 5.6-2.4-5.6-5.6-2.4 5.6-2.4z" fill="var(--gold)" stroke="none"/>
+          <circle cx="14" cy="100" r="4" fill="var(--sky)" stroke="none"/>
+          <circle cx="28" cy="58" r="12" fill="var(--butter)"/><circle cx="46" cy="48" r="13" fill="var(--butter)"/>
+          <circle cx="66" cy="46" r="13" fill="var(--butter)"/><circle cx="84" cy="56" r="12" fill="var(--butter)"/>
+          <circle cx="56" cy="60" r="11" fill="var(--butter)"/>
+          <path d="M18 66h78l-10 78H28z" fill="#FFFFFF"/>
+          <path d="M34 66h14l-2 78H38zM66 66h14l-6 78h-10z" fill="var(--velvet)" stroke="none"/>
+          <path d="M18 66h78l-10 78H28z" fill="none"/>
+          <g transform="rotate(-6 150 110)">
+            <rect x="112" y="84" width="92" height="62" rx="12" fill="#3B3F52"/>
+            <text x="158" y="122" text-anchor="middle" font-size="15" fill="#FFFFFF" stroke="none" font-family="Huninn, sans-serif" letter-spacing="2">包場</text>
+            <text x="158" y="138" text-anchor="middle" font-size="8.5" fill="#FFFFFF" stroke="none" opacity=".7" font-family="M PLUS Rounded 1c, sans-serif">SCENE 1 · TAKE 1</text>
+          </g>
+          <g transform="rotate(-20 112 80)">
+            <rect x="110" y="64" width="94" height="18" rx="6" fill="#FFFFFF"/>
+            <path d="M122 64l-8 18M140 64l-8 18M158 64l-8 18M176 64l-8 18M194 64l-8 18" stroke-width="6" stroke="#3B3F52"/>
+            <rect x="110" y="64" width="94" height="18" rx="6" fill="none"/>
+          </g>
+          <g transform="rotate(12 250 108)">
+            <path d="M216 86h68v14a8 8 0 0 0 0 16v14h-68v-14a8 8 0 0 0 0-16z" fill="var(--sky)"/>
+            <path d="M238 88v40" stroke-dasharray="3 5" stroke="#FFFFFF" stroke-width="2.5"/>
+            <text x="261" y="112" text-anchor="middle" font-size="9" fill="#fff" stroke="none" font-family="M PLUS Rounded 1c, sans-serif" font-weight="800" letter-spacing="1">ADMIT</text>
+            <text x="261" y="123" text-anchor="middle" font-size="7" fill="#fff" stroke="none" font-family="M PLUS Rounded 1c, sans-serif" opacity=".9">ONE</text>
+          </g>
+        </g>
+      </svg>
+    <div class="legend" aria-label="圖例">
+      <span><i style="background:var(--velvet)"></i>要做的決定</span>
+      <span><i style="background:var(--surface);border:2.5px solid var(--line)"></i>選了之後怎麼做</span>
+      <span><i style="background:var(--sky-soft);border:2.5px solid var(--sky)"></i>必做步驟</span>
+      <span><i style="background:var(--warn-soft);border:2.5px solid var(--warn)"></i>要特別小心</span>
+    </div>
+    </div>
+  </header>
+
+  <div class="bar">
+    <nav class="stages" id="stages" aria-label="跳到階段"></nav>
+    <div class="tools">
+      <button class="tbtn" id="detailBtn" aria-pressed="false">顯示補充說明</button>
+      <button class="tbtn" id="zoomOut" aria-label="縮小">－</button>
+      <span class="zoomv" id="zoomV">100%</span>
+      <button class="tbtn" id="zoomIn" aria-label="放大">＋</button>
+      <button class="tbtn" id="zoomFit">看全寬</button>
+    </div>
+  </div>
+
+  <div class="viewport" id="viewport">
+    <div class="sizer" id="sizer">
+      <div class="canvas" id="canvas"></div>
+    </div>
+  </div>
+  <p class="hint">手機上可以左右滑動、用「－」縮小看全貌。</p>
+
+  <footer class="credits">
+    <div class="ct">END CREDITS</div>
+    <dl>
+      <dt>原著</dt><dd>影視雷達〈如何無痛辦一場零負評包場？民間主辦人的幕後血淚與籌辦 SOP 乾貨指南〉</dd>
+      <dt>經驗提供</dt><dd>多位籌辦過電影包場的民間主辦人</dd>
+      <dt>通用版</dt><dd>去除特定影城、片名與個人案例，保留共通的流程與判斷</dd>
+      <dt>特別說明</dt><dd>廳型座位數為概略分級，實際規格與費用以各影城報價為準</dd>
+    </dl>
+    <div class="fin">FIN</div>
+  </footer>
+</div>
+
+<aside class="drawer" id="drawer" aria-live="polite" aria-label="細節"><button class="x" id="closeD" aria-label="關閉">×</button><div id="dbody"></div></aside>
+
+<script>
+/* ---------- content ---------- */
+const FLOW=[
+ {k:'plan',n:'1',name:'事前規劃',items:[
+  {t:'q',id:'genre',text:'這部電影是哪一種？',detail:'<p>電影性質會影響<strong>什麼時候辦</strong>最容易湊滿人。</p>',opts:[
+    {label:'粉絲向',out:'上映初期就辦',more:'避開官方活動檔期',detail:'<p>有明確粉絲群的電影（偶像、演唱會電影、人氣 IP 續作等），上映初期熱度最高，比較容易召集人數。</p><p>注意不要撞到官方首映、見面會等活動。</p>',todo:['查清楚官方活動檔期，避開撞期']},
+    {label:'議題向',out:'等口碑累積再辦',more:'觀察討論度',detail:'<p>需要口碑帶動的電影，等上映一段時間、討論度起來再辦，通常比較容易招到人。</p>',todo:['觀察上映後口碑，再決定包場日期']},
+    {label:'藝術小眾',out:'選藝文影廳、預留發酵期',more:'觀眾少而精準',detail:'<p>觀眾群小而精準。可以優先考慮藝文取向或獨立經營的影廳，並預留口碑發酵的時間。</p>'},
+  ]},
+  {t:'q',id:'lead',text:'距離包場日還有多久？',detail:'<p>一般建議從開始規劃到包場當天，<strong>至少預留 1 個月</strong>。意願調查、和影城與發行商來回溝通都需要時間。</p>',opts:[
+    {label:'2 個月以上',out:'場地選擇最多',more:'含需提前申請的場地',detail:'<p>時間充裕。非院線場地（影展中心、藝文空間等）常需要較長的申請期與公播授權，只有這個區間比較來得及。</p>'},
+    {label:'1～2 個月',out:'時間剛好',more:'以一般院線影城為主',detail:'<p>符合建議的最少準備期。一般院線影城大多可以安排，需要長期申請的場地可能來不及。</p>'},
+    {label:'不到 1 個月',warn:true,out:'縮小規模，今天就聯絡',more:'選包場流程熟悉的影城',detail:'<p>時間很趕。建議選包場流程成熟的影城、縮小規模，並同時聯絡發行商和影城。</p>'},
+  ]},
+  {t:'q',id:'survey',text:'知道大概會來多少人嗎？',detail:'<p>影城通常是整廳計價，坐不滿的座位也要付錢。先摸清楚人氣再訂廳。</p>',opts:[
+    {label:'不確定',out:'先發意願調查表單',more:'線上表單工具即可',detail:'<p>問三件事：想看哪個場次、可以接受的票價、會帶幾個人。</p>',todo:['發放意願調查表單']},
+    {label:'有把握',out:'仍做簡短調查確認',more:'喊 +1 不等於會付款',detail:'<p>社群上的熱烈回應是好事，但表態想去的人不一定會真的報名付款。</p>'},
+  ]},
+  {t:'q',id:'scale',text:'預估會有多少人？',note:'非院線場地（影展中心、藝文空間、學校等）通常需另外取得公播授權，申請期也較長，要提早確認。',
+   detail:'<p>依調查結果抓一個<strong>保守</strong>的數字。沒把握就從小廳開始。廳型與座位數依各影城而異，以下為概略分級：</p><table><tr><td>小廳</td><td>約 30–60 席，風險最低，適合第一次辦</td></tr><tr><td>中廳</td><td>約 100–180 席，需要一定宣傳力道</td></tr><tr><td>大廳</td><td>約 200 席以上，宣傳與金流壓力都高</td></tr><tr><td>特殊／巨幕廳</td><td>300 席以上或特殊規格，總價與訂金最高</td></tr></table><p>選影城時可以比較：廳型與座位數、包場流程是否成熟、窗口溝通是否順暢、熱門時段是否會有多組活動同時報到。</p>',opts:[
+    {label:'50 人以下',out:'小廳',more:'新手首選',detail:'<p>坐不滿的風險最低，也最容易找到檔期。適合第一次辦包場。</p>'},
+    {label:'100–180 人',out:'中廳',more:'議題、藝文片也適合',detail:'<p>需要穩定的宣傳。議題、藝術或小眾電影可以考慮藝文取向的影廳。</p>'},
+    {label:'200 人以上',out:'大廳',more:'選包場流程成熟的影城',detail:'<p>需要穩定的宣傳力道。熱門時段可能有多組包場同時報到，記得先問報到動線與位置。</p>'},
+    {label:'300 人以上',out:'特殊／巨幕廳',more:'總價與訂金最高',warn:true,detail:'<p>最有氣勢，但財務風險也最高。整廳總價、訂金比例、付款期限都要先問清楚，排程通常也較嚴格。</p>',todo:['把訂金與尾款期限寫進行事曆']},
+  ]},
+ ]},
+ {k:'contact',n:'2',name:'聯絡單位',items:[
+  {t:'step',id:'dist',text:'聯絡發行商',chips:['地區與影城','目標人數','有沒有特典','請對方協助聯繫影城'],
+   detail:'<p>發行商通常是第一個聯絡對象。不確定哪些影城有上映這部片，也可以請發行商推薦。</p><p>有些發行商會直接提供影城窗口的聯絡方式，甚至幫忙牽線。若選擇非院線場地，也要一起洽談<strong>公播授權</strong>。</p>'},
+  {t:'q',id:'merch',text:'要做自製應援物嗎？',detail:'<p>精美的應援物是吸引觀眾的一大誘因，但要先處理好版權。</p>',opts:[
+    {label:'用官方素材',out:'確認範圍＋送審設計稿',detail:'<p>先向發行商確認劇照、海報等素材的使用範圍，再把設計稿交給發行商審核，通過後才製作。</p>',todo:['確認官方素材使用範圍','設計稿送發行商審核']},
+    {label:'自己畫插畫',out:'用到角色標誌仍要問授權',detail:'<p>不用官方素材也可以。但如果畫了原作角色、標誌等受著作權保護的元素，仍建議先確認授權規範。</p>'},
+    {label:'不做',out:'專心辦好放映',detail:'<p>完全可以。官方特典加上好的觀影體驗，就足以讓大家滿意。</p>'},
+  ]},
+  {t:'step',id:'theater',text:'向影城窗口確認 5 件事',chips:['檔期與座位數','訂金與尾款期限','票券怎麼領','入場時間與佈置限制','正式合約'],
+   detail:'<p>影城窗口不一定會主動說明所有細節，<strong>你要主動問</strong>。</p><ul><li>可用日期、開演時間、影廳座位數</li><li>訂金金額或比例、尾款期限</li><li>付款後怎麼領票券（實體或電子）</li><li>可提早多久入場、有沒有報到桌、佈置限制</li><li>合約條款逐條讀清楚再簽</li></ul>'},
+  {t:'q',id:'guest',text:'要邀請影人出席嗎？',detail:'<p>進階挑戰。影人出席能讓包場更難忘，但變數也最大。</p>',opts:[
+    {label:'要',out:'透過經紀人或發行商聯繫',more:'宣傳不保證一定到場',detail:'<p>經紀人會評估影人意願、時間與費用，並確認不和官方活動撞期。提案信寫上主辦簡介、過往經驗、預計時段與費用預算。</p><p>影人行程常會臨時變動，宣傳時寫「預計有映後活動」等保留彈性的說法，避免承諾一定到場。</p>'},
+    {label:'不要',out:'少一個變數',detail:'<p>專心讓報到和放映順利。</p>'},
+  ]},
+ ]},
+ {k:'cost',n:'3',name:'成本票價',items:[
+  {t:'q',id:'seats',text:'第一排和邊角座位要賣嗎？',detail:'<p>影城常見的計價方式是「<strong>座位數 × 團票價</strong>」，整廳計價，空位不會打折。</p>',opts:[
+    {label:'保留不賣',out:'空位成本平攤進票價',more:'觀影體驗優先',detail:'<p>不賣第一排和極邊角，觀影體驗較好，但這些位置一樣要付錢，所以票價要微幅調高。</p>'},
+    {label:'照常販售',out:'報名表清楚註明',detail:'<p>票價可以壓低一點，但一定要事先說清楚，建立合理預期。</p>'},
+  ]},
+  {t:'step',id:'price',text:'算出每張票的價格',chips:['包廳費','公播費','應援物','平台服務費','影人費','÷ 預計售出座位'],
+   detail:'<p>把所有成本加起來，除以<strong>預計售出的座位數</strong>（不是全廳座位數）。</p><ul><li>包廳費：座位數 × 團票價</li><li>公播授權費：非院線場地才需要</li><li>應援物：設計、印刷、運費</li><li>售票平台服務費</li><li>影人出席費</li></ul><p>最後替自己訂一個<strong>最多願意自掏腰包</strong>的金額，做好財務風險控管。</p>'},
+ ]},
+ {k:'signup',n:'4',name:'宣傳報名',items:[
+  {t:'q',id:'pay',text:'用什麼方式收款？',detail:'<p>常見做法有兩種：線上表單加匯款，或使用售票平台讓報名和金流一次串好。</p>',opts:[
+    {label:'表單＋匯款',sub:{id:'order',text:'先匯款，還是先填單？',warnChip:'個人帳戶收大量款項有風險',
+      detail:'<p>用<strong>個人帳戶收大量款項有風險</strong>。想完全避開，就改用售票平台。</p>',opts:[
+       {label:'先匯款',out:'超賣時要退款',detail:'<p>填資料 → 表單顯示匯款資訊並當下匯款 → 回填匯款資訊 → 手動對帳、寄報名成功信。報名超額時，要通知對方並退款。</p>'},
+       {label:'先填單',out:'未繳款要追款',detail:'<p>填資料 → 寄匯款資訊並請對方回填 → 手動對帳、寄報名成功信。遲遲未繳款的人，要追款或釋出名額。</p>'},
+    ]}},
+    {label:'售票平台',out:'金流一次串好',more:'服務費要算進成本',detail:'<p>行政負擔輕，也避開個人帳戶的風險。記得把平台服務費加回成本。</p>'},
+  ]},
+  {t:'q',id:'refund',text:'取消和退款怎麼訂？',detail:'<p>不管選哪個，都要<strong>寫在報名表單上</strong>。</p>',opts:[
+    {label:'不可退、可轉讓',out:'常見做法',more:'轉讓需告知主辦',detail:'<p>臨時有事的人可以把票轉給朋友，但要向主辦登記受讓者資料。</p>'},
+    {label:'期限內可退',warn:true,out:'行政量大增',more:'訂清楚截止日與手續費',detail:'<p>退款、補位都要人工處理，行政負擔明顯較重。</p>'},
+  ]},
+  {t:'q',id:'promo',text:'宣傳主力是什麼？',detail:'<p>宣傳的同時也在<strong>建立信任感</strong>：大家會看你的社群檔案、活動規則寫得清不清楚、特典有多用心。</p>',opts:[
+    {label:'自己有聲量',out:'用自己的社群帶話題',more:'配合平台當下流行的形式',detail:'<p>主辦本身有社群影響力時，順著平台當下流行的貼文形式，搭配電影亮點製造話題，最能帶動同溫層轉發。</p>'},
+    {label:'找人聯辦',out:'主辦＋協辦一起轉發',more:'多一個轉發起點',detail:'<p>邀請朋友、影友聯辦，每多一位協辦就多一個轉發的起點。</p>'},
+    {label:'議題社群',out:'到相關社群精準推廣',more:'適合議題導向電影',detail:'<p>找到真正關心這個議題的人，比廣發消息更有效。</p>'},
+  ]},
+  {t:'step',id:'open',text:'開放報名',chips:['主辦介紹與活動規則','特典細節','截止後寄報名成功信'],
+   detail:'<p>活動規則要寫清楚：影城地點、票價包含哪些項目、怎麼劃位、退款與轉讓規則。列出自製與官方特典，精美的應援物也是吸引觀眾的一大要素。</p>'},
+ ]},
+ {k:'eve',n:'5',name:'上映前夕',items:[
+  {t:'q',id:'seat',text:'座位怎麼分配？',detail:'<p>走到這一步，風險最高的時期已經過了。</p>',opts:[
+    {label:'事前劃位',out:'依付款順序排座位',more:'較推薦，團報可排一起',detail:'<p>越早付款位置越好。事前劃位最能避免現場塞車，只是主辦要多花一點力氣。</p>'},
+    {label:'現場劃位',warn:true,out:'先到先選',more:'報到易塞車，中大型不推薦',detail:'<p>報到時人流可能塞車、延後進場。規模越大越不建議。</p>'},
+  ]},
+  {t:'step',id:'notice',text:'領票與特典，寄行前通知',chips:['領票並保管好','領官方特典','報到識別碼','完整地址','遲到條款','當天流程'],
+   detail:'<p>付清尾款後，向影城確認何時可以領票，實體票弄丟會非常麻煩。官方特典通常會先寄到影城，記得向窗口領取。有自製應援物的話，也要留意物流時間。</p><p>行前信必備：</p><ul><li>報到識別碼：專屬序號或手機末幾碼</li><li>影城完整名稱與地址（連鎖影城分館多，容易跑錯）</li><li>遲到條款：開演後保留幾分鐘</li><li>當天流程：報到時間、報到位置，抽獎合照排在映前還是映後</li></ul>'},
+ ]},
+ {k:'day',n:'6',name:'活動當天',items:[
+  {t:'step',id:'checkin',text:'提前到場報到',chips:['找朋友幫忙','擺好票券與特典','核對報到識別碼','留人等遲到者'],
+   detail:'<p>建議提前約 1 小時到場。找幾位朋友幫忙報到、發票與特典、攝影紀錄。部分影城會協助準備報到桌或立牌，事先問清楚。</p><p>用電子或紙本名單都可以，能快速核對身分就好。開演前留一兩位在報到處等遲到的人。</p>'},
+  {t:'q',id:'lottery',text:'映前映後要抽獎嗎？',detail:'<p>影城給的映前映後時間通常<strong>很短</strong>，合照、抽獎、致詞都擠在這裡，要事先確認可用時間並安排好順序。</p>',opts:[
+    {label:'線上工具',out:'快速、公開透明',detail:'<p>最省時間。記得事先測好投影或手機畫面。</p>'},
+    {label:'紙本抽獎券',out:'較花時間、臨場感強',detail:'<p>紙本抽獎通常花更多時間，但現場氣氛更熱烈。</p>'},
+    {label:'不抽',out:'時間留給合照致詞',detail:'<p>時間有限，少一個環節反而從容。</p>'},
+  ]},
+  {t:'step',id:'after',text:'散場與收尾',chips:['提醒隨身物品','巡視遺失物','寄感謝信與大合照'],
+   detail:'<p>趁大家心還熱著的時候寄信給參與者，分享大合照與簡短心得，約好未來再見。</p>'},
+ ]},
+];
+const CASES=[
+ {id:'c1',out:'特典品相或數量爭議',detail:'<p>報到尖峰時有人要求更換特典，或特典不夠發。</p><p><strong>解法：</strong>在宣傳文案或行前信寫明特典瑕疵的處理方式（例如一律散場後處理）、數量有限無法更換等規則。</p>'},
+ {id:'c2',out:'現場遺失物品',detail:'<p>票根、應援物或個人物品在現場遺失。</p><p><strong>解法：</strong>報到處設為失物集中點，散場前廣播或在群組公告，必要時依座位號碼協助找回失主。</p>'},
+ {id:'c3',out:'場地或設備出狀況',detail:'<p>放映、音響、空調等設備故障，可能導致活動延誤或無法進行。</p><p><strong>解法：</strong>事先和影城確認異常時的處理方式，想好要退票還是改期，以及怎麼通知陸續到場的參與者。</p>'},
+ {id:'c4',out:'非參與者闖入',detail:'<p>沒報名的人趁亂進場或要求參與活動。</p><p><strong>解法：</strong>堅定說明活動只屬於付費參與者，安排多位工作人員一起處理，必要時請影城人員協助。</p>'},
+];
+
+/* ---------- render ---------- */
+const D={}, EDGES=[];
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function renderQ(q,stage,sub){
+  D[q.id]={kind:'要做的決定',title:q.text,stage,html:q.detail+q.opts.map(o=>`<div class="dopt"><b>${esc(o.label)}</b><span>${esc(o.sub?o.sub.text:o.out)}</span></div>`).join('')};
+  let exits=[];
+  const brs=q.opts.map((o,i)=>{
+    let inner;
+    if(o.sub){const r=renderQ(o.sub,stage,true);inner=r.html;EDGES.push({from:q.id,to:o.sub.id,split:true});exits.push(...r.exits);}
+    else{
+      const id=q.id+'-'+i;
+      D[id]={kind:'選了「'+o.label+'」',title:o.out,stage,html:o.detail+(o.todo?`<div class="todo"><h3>記得做</h3><ul>${o.todo.map(t=>`<li>${t}</li>`).join('')}</ul></div>`:'')};
+      inner=`<button class="node n-leaf${o.warn?' warn':''}" id="n-${id}" data-id="${id}">${esc(o.out)}${o.more?`<span class="more">${esc(o.more)}</span>`:''}</button>`;
+      EDGES.push({from:q.id,to:id,split:true});exits.push(id);
+    }
+    return `<div class="br"><span class="lab">${esc(o.label)}</span>${inner}</div>`;
+  }).join('');
+  const html=`<div class="blk"><button class="node n-q${sub?' sub':''}" id="n-${q.id}" data-id="${q.id}">${esc(q.text)}${q.warnChip?`<span class="wchip">${esc(q.warnChip)}</span>`:''}</button><div class="brs">${brs}</div>${q.note?`<div class="qnote">${esc(q.note)}</div>`:''}</div>`;
+  return {html,exits};
+}
+function render(){
+  let prev=['start'], html='';
+  D.start={kind:'起點',title:'好想包場！',stage:null,html:'<p>「這部電影，絕對不能只有我自己看。」包場的衝動是最重要的第一步。</p><p>從起心動念到把大家邀進影廳，中間有 6 個階段。這張圖把每個階段要做的事和會遇到的岔路都攤開來。</p>'};
+  html+=`<div class="flow" style="margin-bottom:40px"><button class="node" id="n-start" data-id="start"><span class="stub">ADMIT</span>好想包場！</button></div>`;
+  FLOW.forEach(st=>{
+    let inner='';
+    st.items.forEach(it=>{
+      if(it.t==='q'){const r=renderQ(it,st);prev.forEach(p=>EDGES.push({from:p,to:it.id}));prev=r.exits;inner+=r.html;}
+      else{
+        D[it.id]={kind:'必做步驟',title:it.text,stage:st,html:it.detail};
+        inner+=`<button class="node n-step" id="n-${it.id}" data-id="${it.id}"><span class="st">${esc(it.text)}</span><span class="chips">${it.chips.map(c=>`<span>${esc(c)}</span>`).join('')}</span></button>`;
+        prev.forEach(p=>EDGES.push({from:p,to:it.id}));prev=[it.id];
+      }
+    });
+    html+=`<section class="band" id="band-${st.k}"><div class="band-h"><span class="reel" aria-hidden="true"></span><span class="scene">SCENE ${String(st.n).padStart(2,'0')}</span>${st.name}</div><div class="flow">${inner}</div></section>`;
+  });
+  D.end={kind:'終點',title:'燈光暗下，一起同步共鳴',stage:null,html:'<p>包場，是一群人的愛在同一個時空裡高度凝聚。願意扛下金錢風險、售票壓力和突發狀況，都是為了燈光暗下的那一刻。</p>'};
+  html+=`<div class="flow" style="margin-top:40px"><div class="screen-wrap"><button class="node" id="n-end" data-id="end"><span class="lamp">NOW SHOWING</span>燈光暗下，一起同步共鳴</button><div class="seats" aria-hidden="true"></div></div></div>`;
+  prev.forEach(p=>EDGES.push({from:p,to:'end'}));
+  const ex={k:'extra',n:'＋',name:'突發狀況'};
+  CASES.forEach(c=>D[c.id]={kind:'突發狀況',title:c.out,stage:ex,html:c.detail});
+  html+=`<section class="band" id="band-extra"><div class="band-h"><svg class="clap" viewBox="0 0 26 22" aria-hidden="true"><rect x="2" y="9" width="22" height="12" rx="3" fill="var(--ink)"/><g transform="rotate(-14 2 8)"><rect x="2" y="3" width="22" height="5.5" rx="2" fill="var(--surface)" stroke="var(--ink)" stroke-width="1.6"/><path d="M7 3l-2 5.5M12 3l-2 5.5M17 3l-2 5.5M22 3l-2 5.5" stroke="var(--ink)" stroke-width="2"/></g></svg><span class="scene">NG</span>突發狀況：SOP 之外，先想好怎麼接</div><div class="cases">${CASES.map(c=>`<button class="node n-leaf warn" id="n-${c.id}" data-id="${c.id}"><span class="ng">NG ${c.id.slice(1)}</span>${esc(c.out)}</button>`).join('')}</div></section>`;
+  const cv=document.getElementById('canvas');
+  cv.innerHTML=`<svg class="edges" id="edges"></svg>`+html;
+  document.getElementById('stages').innerHTML=[...FLOW,ex].map(s=>`<button data-band="${s.k}"><i>${s.n}</i>${s.name}</button>`).join('');
+}
+
+/* ---------- edges ---------- */
+let scale=1;
+function box(id){
+  const el=document.getElementById('n-'+id), cv=document.getElementById('canvas');
+  const r=el.getBoundingClientRect(), c=cv.getBoundingClientRect();
+  const x=(r.left-c.left)/scale, y=(r.top-c.top)/scale, w=r.width/scale, h=r.height/scale;
+  return {cx:x+w/2,top:y,bottom:y+h};
+}
+function elbow(x1,y1,x2,y2,my){
+  if(Math.abs(x1-x2)<1)return `M${x1} ${y1}V${y2}`;
+  const r=Math.min(12,Math.abs(x2-x1)/2,Math.abs(my-y1),Math.abs(y2-my)), d=x2>x1?1:-1;
+  return `M${x1} ${y1}V${my-r}Q${x1} ${my} ${x1+d*r} ${my}H${x2-d*r}Q${x2} ${my} ${x2} ${my+r}V${y2}`;
+}
+function draw(){
+  const cv=document.getElementById('canvas'), svg=document.getElementById('edges');
+  const W=cv.offsetWidth, H=cv.offsetHeight;
+  svg.setAttribute('width',W);svg.setAttribute('height',H);svg.setAttribute('viewBox',`0 0 ${W} ${H}`);
+  let out=`<defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ah" d="M1 1L9 5L1 9z"/></marker><marker id="ahh" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ah-hi" d="M1 1L9 5L1 9z"/></marker></defs>`;
+  EDGES.forEach(e=>{
+    const a=box(e.from), b=box(e.to);
+    const y2=b.top-3, my=e.split?a.bottom+18:y2-22;
+    out+=`<path d="${elbow(a.cx,a.bottom+2,b.cx,y2,my)}" data-from="${e.from}" data-to="${e.to}" marker-end="url(#ah)"/>`;
+  });
+  svg.innerHTML=out;
+  sizeUp();
+}
+function sizeUp(){
+  const cv=document.getElementById('canvas'), sz=document.getElementById('sizer');
+  cv.style.transform=`scale(${scale})`;
+  sz.style.width=cv.offsetWidth*scale+'px';sz.style.height=cv.offsetHeight*scale+'px';
+  document.getElementById('zoomV').textContent=Math.round(scale*100)+'%';
+}
+function fitScale(){const vw=document.getElementById('viewport').clientWidth, cw=document.getElementById('canvas').offsetWidth;return Math.min(1,vw/cw);}
+function setScale(s){scale=Math.max(.35,Math.min(1.2,s));sizeUp();}
+
+/* ---------- interaction ---------- */
+function light(id,on){
+  document.querySelectorAll(`#edges path[data-to="${id}"],#edges path[data-from="${id}"]`).forEach(p=>{
+    p.classList.toggle('hi',on);p.setAttribute('marker-end',on?'url(#ahh)':'url(#ah)');
+  });
+}
+function openD(id){
+  const d=D[id];if(!d)return;
+  document.querySelectorAll('.node.sel').forEach(n=>n.classList.remove('sel'));
+  document.getElementById('n-'+id).classList.add('sel');
+  document.getElementById('dbody').innerHTML=`<div class="dhead">${d.stage?`<span class="dpill"><i>${d.stage.n}</i>${d.stage.name}</span>`:''}<h2>${esc(d.title)}</h2><div class="kind">${esc(d.kind)}</div></div><div>${d.html}</div>`;
+  document.getElementById('drawer').classList.add('open');
+}
+function closeD(){document.getElementById('drawer').classList.remove('open');document.querySelectorAll('.node.sel').forEach(n=>n.classList.remove('sel'));}
+
+document.addEventListener('click',e=>{
+  const t=e.target.closest('button');
+  if(!t){if(!e.target.closest('.drawer'))closeD();return;}
+  if(t.dataset.id){openD(t.dataset.id);return;}
+  if(t.dataset.band){document.getElementById('band-'+t.dataset.band).scrollIntoView({behavior:'smooth',block:'start',inline:'center'});return;}
+  switch(t.id){
+    case 'closeD':closeD();break;
+    case 'zoomIn':setScale(scale+.1);break;
+    case 'zoomOut':setScale(scale-.1);break;
+    case 'zoomFit':setScale(fitScale());break;
+    case 'detailBtn':{const on=!document.body.classList.contains('detail');document.body.classList.toggle('detail',on);t.setAttribute('aria-pressed',on);t.textContent=on?'隱藏補充說明':'顯示補充說明';draw();break;}
+  }
+});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeD();});
+document.addEventListener('pointerover',e=>{const n=e.target.closest('.node');if(n)light(n.dataset.id,true);});
+document.addEventListener('pointerout',e=>{const n=e.target.closest('.node');if(n)light(n.dataset.id,false);});
+let rz;window.addEventListener('resize',()=>{clearTimeout(rz);rz=setTimeout(()=>{draw();},150);});
+
+render();
+function boot(){scale=1;draw();const f=fitScale();setScale(f<.62?.62:f);}
+boot();
+if(document.fonts&&document.fonts.ready)document.fonts.ready.then(boot);
+</script>
+</body>
+</html>
