@@ -91,9 +91,9 @@ h1{font-size:clamp(34px,5vw,50px);line-height:1.2;margin-top:10px;letter-spacing
 .edges .ah-hi{fill:var(--edge-hi)}
 
 /* stage bands */
-.band{position:relative;border-radius:24px;background:var(--band);border:2.5px solid var(--line);padding:96px 20px 30px;margin-top:84px;scroll-margin-top:80px;box-shadow:0 5px 0 var(--line)}
+.band{position:relative;border-radius:24px;background:var(--band);border:2.5px solid var(--line);padding:0 20px 30px;margin-top:84px;scroll-margin-top:80px;box-shadow:0 5px 0 var(--line)}
 .band:first-of-type{margin-top:0}
-.band-h{position:absolute;left:0;right:0;top:0;display:flex;align-items:center;gap:12px;font-size:22px;letter-spacing:.08em;color:var(--velvet-deep);background:var(--velvet-soft);border-radius:21px 21px 0 0;border-bottom:2.5px dashed var(--velvet);padding:14px 22px}
+.band-h{position:relative;margin:0 -20px 30px;display:flex;align-items:center;gap:12px;font-size:22px;letter-spacing:.08em;color:var(--velvet-deep);background:var(--velvet-soft);border-radius:21px 21px 0 0;border-bottom:2.5px dashed var(--velvet);padding:14px 22px}
 .band-h i{font-style:normal;width:28px;height:28px;border-radius:50%;background:var(--velvet-strong);color:var(--velvet-ink);display:grid;place-items:center;font-family:var(--f-num);font-weight:800;font-size:14px}
 .flow{display:flex;flex-direction:column;align-items:center;gap:52px}
 
@@ -126,7 +126,10 @@ body:not(.detail) .more{display:none}
 .wchip{display:block;margin-top:6px;font-size:13.5px;background:var(--surface);color:var(--warn);border-radius:999px;padding:0 10px}
 
 .cases{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-.cases .n-leaf{width:auto}
+.cases{padding-inline:18px}
+.cases .n-leaf{width:auto;padding:12px 14px}
+.cases .ng{display:block;width:fit-content;margin:0 auto 6px}
+.band-h .ttl small{display:inline-block;margin-left:12px;font-size:15px;letter-spacing:.04em;color:var(--muted)}
 
 /* detail drawer */
 .drawer{position:fixed;z-index:20;right:16px;top:calc(env(safe-area-inset-top,0px) + 16px);bottom:calc(env(safe-area-inset-bottom,0px) + 16px);width:min(380px,calc(100vw - 32px));background:var(--surface);border-radius:24px;box-shadow:0 8px 0 var(--shadow),0 20px 50px #0002;padding:22px 22px 20px;overflow:auto;transform:translateX(calc(100% + 32px));transition:transform .35s cubic-bezier(.22,1,.36,1)}
@@ -236,8 +239,8 @@ body:not(.detail) .more{display:none}
   .canvas{position:static;width:auto;max-width:760px;margin:0 auto;padding:0;transform:none!important}
   .canvas svg.edges{display:none}
   .band::before,.band::after{display:none}
-  .band{padding:80px 12px 18px;margin-top:56px;scroll-margin-top:68px}
-  .band-h{font-size:18px;gap:10px;padding:12px 14px}
+  .band{padding:0 12px 18px;margin-top:56px;scroll-margin-top:68px}
+  .band-h{font-size:18px;gap:10px;padding:12px 14px;margin:0 -12px 22px}
   .reel{width:30px;height:30px}
   .band .flow{align-items:stretch;gap:24px;background:linear-gradient(var(--edge),var(--edge)) 50% 0/2.5px 100% no-repeat}
   .blk{width:100%}
@@ -250,7 +253,8 @@ body:not(.detail) .more{display:none}
   .lab{white-space:normal;text-align:center;align-self:center}
   .n-leaf,.br .blk .n-leaf{width:100%;height:100%;padding:8px 10px;font-size:14px}
   .qnote{max-width:none;margin-top:10px}
-  .cases{grid-template-columns:1fr 1fr;gap:10px}
+  .cases{grid-template-columns:1fr 1fr;gap:10px;padding-inline:0}
+  .band-h .ttl small{display:block;margin-left:0;font-size:13.5px}
   #n-start{align-self:center}
   .hint .wide-only{display:none}
   .bar{flex-wrap:nowrap;gap:10px}
@@ -488,7 +492,7 @@ function render(){
   prev.forEach(p=>EDGES.push({from:p,to:'end'}));
   const ex={k:'extra',n:'＋',name:'突發狀況'};
   CASES.forEach(c=>D[c.id]={kind:'突發狀況',title:c.out,stage:ex,html:c.detail});
-  html+=`<section class="band" id="band-extra"><div class="band-h"><svg class="clap" viewBox="0 0 26 22" aria-hidden="true"><rect x="2" y="9" width="22" height="12" rx="3" fill="var(--ink)"/><g transform="rotate(-14 2 8)"><rect x="2" y="3" width="22" height="5.5" rx="2" fill="var(--surface)" stroke="var(--ink)" stroke-width="1.6"/><path d="M7 3l-2 5.5M12 3l-2 5.5M17 3l-2 5.5M22 3l-2 5.5" stroke="var(--ink)" stroke-width="2"/></g></svg><span class="scene">NG</span>突發狀況：SOP 之外，先想好怎麼接</div><div class="cases">${CASES.map(c=>`<button class="node n-leaf warn" id="n-${c.id}" data-id="${c.id}"><span class="ng">NG ${c.id.slice(1)}</span>${esc(c.out)}</button>`).join('')}</div></section>`;
+  html+=`<section class="band" id="band-extra"><div class="band-h"><svg class="clap" viewBox="0 0 26 22" aria-hidden="true"><rect x="2" y="9" width="22" height="12" rx="3" fill="var(--ink)"/><g transform="rotate(-14 2 8)"><rect x="2" y="3" width="22" height="5.5" rx="2" fill="var(--surface)" stroke="var(--ink)" stroke-width="1.6"/><path d="M7 3l-2 5.5M12 3l-2 5.5M17 3l-2 5.5M22 3l-2 5.5" stroke="var(--ink)" stroke-width="2"/></g></svg><span class="scene">NG</span><span class="ttl">突發狀況<small>SOP 之外，先想好怎麼接</small></span></div><div class="cases">${CASES.map(c=>`<button class="node n-leaf warn" id="n-${c.id}" data-id="${c.id}"><span class="ng">NG ${c.id.slice(1)}</span>${esc(c.out)}</button>`).join('')}</div></section>`;
   const cv=document.getElementById('canvas');
   cv.innerHTML=`<svg class="edges" id="edges"></svg>`+html;
   document.getElementById('stages').innerHTML=[...FLOW,ex].map(s=>`<button data-band="${s.k}"><i>${s.n}</i>${s.name}</button>`).join('');
